@@ -16,10 +16,12 @@ print(number)
 # Подсказки:
 # * постарайтесь сделать решение через действия над числами;
 
-f: int = int(input('Input number f: '))
-g: int = int(input('Input number g: '))
+f = int(input('Input number f: '))
+g = int(input('Input number g: '))
 f = f ^ g
 g = g ^ f
 f = f ^ g
+
+# второй вариант - чисто питоновский f, g = g, f
 print('f: ', f)
 print('g: ', g)
