@@ -5,12 +5,17 @@
 # А так же несколько методов: go, stop, turn(direction) - которые должны сообщать,
 #  о том что машина поехала, остановилась, повернула(куда)
 
+# Задача - 2
+# Посмотрите на задачу-1 подумайте как выделить общие признаки классов
+# в родительский и остальные просто наследовать от него.
+
 
 class TownCar:
-    def __init__(self, speed, name):
+    def __init__(self, speed, color, name, is_police=False):
         self.speed = speed
+        self.color = color
         self.name = name
-        self.is_police = False
+        self.is_police = is_police
 
     def go(self):
         print('Машина поехала')
@@ -23,7 +28,9 @@ class TownCar:
 
 
 class SportCar(TownCar):
-    pass
+    def __init__(self, speed, color, name, turbo=True):
+        super().__init__(self, speed, color, name)
+        self.turbo = turbo
 
 
 class WorkCar(TownCar):
@@ -31,7 +38,14 @@ class WorkCar(TownCar):
 
 
 class PoliceCar(TownCar):
-    super().__init__(is_police=True)
+    def __init__(self, speed, color, name):
+        super().__init__(self, speed, color, name)
+        self.is_police = True
+
+
+police = PoliceCar(200, 'blue', 'Track')
+
+print(police.is_police)
 
 # Вариант преподавателя
 
@@ -108,7 +122,6 @@ class PoliceCar(TownCar):
 # Посмотрите на задачу-1 подумайте как выделить общие признаки классов
 # в родительский и остальные просто наследовать от него.
 
-# В моем исполнении уже ничего делать не надо было
 
 # Вариант преподавателя
 #
