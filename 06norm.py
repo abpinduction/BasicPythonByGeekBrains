@@ -36,6 +36,7 @@ class Person:
     def _set_health(self, value):
         self._health = value
 
+    # method of getting damage for player
     def hit(self, damage):
         self._set_health(self._health - damage)
 
