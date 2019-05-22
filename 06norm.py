@@ -21,6 +21,9 @@ class Person:
         self._damage = damage
         self._lvl = 1
 
+    def get_name(self):
+        return self._name
+
     def get_health(self):
         return self._health
 
@@ -90,9 +93,9 @@ class Game:
                 self._player.attack(self._enemy)
                 last_assaulter = self._player
         if self._player.get_health() > 0:
-            print('Hero has won')
+            print(f'{self._player.get_name()} has won')
         else:
-            print('Enemy has won')
+            print(f'{self._enemy.get_name()} has won')
 
 
 if __name__ == "__main__":
