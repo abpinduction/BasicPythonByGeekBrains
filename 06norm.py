@@ -72,7 +72,7 @@ class Player(Person):
 
 class Enemy(Person):
 
-    def __init__(self, name, lvl):
+    def __init__(self, name, lvl=random.randint(1, 2)):
         super().__init__(name)
         self._lvl = lvl
         self._damage *= lvl
@@ -101,7 +101,7 @@ class Game:
 
 
 if __name__ == "__main__":
-    hero = Player('Batman', 5000)
-    bad_hero = Enemy('Joker', 2)
+    hero = Player('Batman', 250)
+    bad_hero = Enemy('Joker')
     game = Game(hero, bad_hero)
     game.start()
