@@ -10,15 +10,16 @@
 # Функция подсчета урона должна быть инкапсулирована
 # Вам надо описать игровой цикл так же через класс.
 # Создайте экземпляры классов, проведите бой. Кто будет атаковать первым оставляю на ваше усмотрение.
+import random
 
 
 class Person:
 
-    def __init__(self, name, health=100, armor=2, damage=10):
+    def __init__(self, name, health=100, armor=2):
         self._name = name
         self._health = health
-        self._armor = armor
-        self._damage = damage
+        self._armor = random.randint(2, 20)
+        self._damage = random.randint(20, 500)
         self._lvl = 1
 
     def get_name(self):
@@ -50,8 +51,8 @@ class Person:
 
 class Player(Person):
 
-    def __init__(self, name, health, armor, damage):
-        super().__init__(name, health, armor, damage)
+    def __init__(self, name, health):
+        super().__init__(name, health)
         self._experience = 1
         self._exp_to_next_lvl = 100
 
@@ -100,7 +101,7 @@ class Game:
 
 
 if __name__ == "__main__":
-    hero = Player('Batman', 500, 1.2, 20)
-    bad_hero = Enemy('Joker', 1)
+    hero = Player('Batman', 5000)
+    bad_hero = Enemy('Joker', 2)
     game = Game(hero, bad_hero)
     game.start()
